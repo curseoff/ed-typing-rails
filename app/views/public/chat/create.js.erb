@@ -1,0 +1,3 @@
+<% publish_to "/public/chat/new" do %>
+  $("#chat").prepend("<%= @message["body"] %><br />");
+<% end %>

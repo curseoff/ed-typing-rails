@@ -1,0 +1,8 @@
+= ed-typing
+
+== ed-typingとは
+英語学習用アプリケーション。英語を英語で考えるくせをつけるために、英単語を英英辞典で引き、人々とタイピング速度を競い合います。
+
+
+== Usage
+rackup private_pub.ru -s thin -E production

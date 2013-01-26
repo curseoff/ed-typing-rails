@@ -1,0 +1,107 @@
+
+#nav {
+	margin: 0;
+	padding: 7px 6px 0;
+	line-height: 100%;
+
+}
+#nav li {
+	margin: 0 5px;
+	padding: 0 0 4px;
+	float: left;
+	position: relative;
+	list-style: none;
+}
+
+
+/* main level link */
+#nav a {
+	color: white;
+	text-decoration: none;
+	display: block;
+	padding:  8px 20px;
+	margin: 0;
+}
+
+#nav a:hover {
+	background: #000;
+	color: #fff;
+}
+
+/* main level link hover */
+#nav .current a, #nav li:hover > a {
+	background: darkred url(img/gradient.png) repeat-x 0 -40px;
+	color: orange;
+}
+
+/* sub levels link hover */
+#nav ul li:hover a, #nav li:hover li a {
+	background: none;
+	border: none;
+	color: white;
+}
+#nav ul a:hover {
+	background: darkred url(img/gradient.png) repeat-x 0 -100px !important;
+	color: orange !important;
+}
+
+/* dropdown */
+#nav li:hover > ul {
+	display: block;
+}
+
+/* level 2 list */
+#nav ul {
+	display: none;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	position: absolute;
+	top: 35px;
+	left: 0;
+	background: darkred url(img/gradient.png) repeat-x 0 0;    
+}
+
+#nav ul li {
+	float: none;
+	margin: 10;
+	padding: 0;
+}
+
+#nav ul a {
+	font-weight: normal;
+}
+
+/* level 3+ list */
+#nav ul ul {
+	left: 181px;
+	top: -3px;
+}
+
+/* rounded corners of first and last link */
+#nav ul li:first-child > a {
+
+}
+#nav ul li:last-child > a {
+
+}
+
+/* clearfix */
+#nav:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+#nav {
+	display: inline-block;
+} 
+html[xmlns] #nav {
+	display: block;
+}
+ 
+* html #nav {
+	height: 1%;
+}

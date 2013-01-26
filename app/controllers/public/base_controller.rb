@@ -3,7 +3,7 @@ class Public::BaseController < BaseController
   
   def login?
     if @current_user.blank?
-      redirect_to root_url
+      redirect_to login_url
     end
   end
 end

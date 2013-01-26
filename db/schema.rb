@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130109150120) do
+ActiveRecord::Schema.define(:version => 20130112161643) do
 
   create_table "messages", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -31,6 +31,24 @@ ActiveRecord::Schema.define(:version => 20130109150120) do
   end
 
   add_index "people", ["user_id"], :name => "index_people_on_user_id", :unique => true
+
+  create_table "room_users", :force => true do |t|
+    t.integer  "room_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "room_users", ["room_id", "user_id"], :name => "index_room_users_on_room_id_and_user_id", :unique => true
+
+  create_table "rooms", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "title"
+    t.text     "contents"
+    t.text     "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

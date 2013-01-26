@@ -12,6 +12,7 @@ gem 'private_pub'
 gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'omniauth-facebook'
+gem 'koala'
 
 gem 'thin'
 

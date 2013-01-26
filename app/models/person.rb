@@ -10,4 +10,8 @@ class Person < ActiveRecord::Base
     
     @profile
   end
+  
+  def name
+    profile["info"]["name"]
+  end
 end

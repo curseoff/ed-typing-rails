@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :person
+  has_many :rooms
   
   attr_accessible :uid, :provider
   
@@ -11,10 +12,38 @@ class User < ActiveRecord::Base
       user = User.create!(:uid => user_data.id, :provider => 'facebook')
     end
     
-    if user.person.blank?
+    person = user.person
+    if person.blank?
       user.create_person(:data => auth_hash.to_json)
+    else
+      person.update_attributes(:data => auth_hash.to_json)
     end
-    
+      
     user
-  end  
+  end
+
+  def name 
+    person.name
+  end
+  
+  def profile
+    person.profile
+  end
+  
+  def token
+    self.profile["credentials"]["token"]
+  end
+  
+  def friends
+    @graph ||= Koala::Facebook::API.new(self.token)
+    @graph.get_connections("me", "friends")
+  end
+  
+  def myrooms
+    self.rooms.order("updated_at desc").reload
+  end
+  
+  def entering_rooms
+    Room.joins(:room_users).where(:user_id => self.id)
+  end
 end

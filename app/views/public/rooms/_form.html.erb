@@ -1,0 +1,42 @@
+<table width="100%">
+  <tr>
+    <td style="width: 200px; vertical-align: top; padding: 5px;">
+      <%= link_to "新しい部屋を作る", new_public_room_path %>
+      <hr />
+      <% @rooms.each_with_index do |room, index| %>
+      <%= link_to room.title, edit_public_room_path(room) %><br />
+      <% end %>
+    </td>
+    <td style="vertical-align: top;">
+      <%= form_for [:public, @room] do |f| %>
+        <table>
+          <tr>
+            <th style="text-align: left;">ルーム名:</th>
+          </tr>
+          <tr>
+            <td><%= f.text_field :title %></td>
+          </tr>
+          <tr>
+            <th style="text-align: left;">内容:</th>
+          </tr>
+          <tr>
+            <td><%= f.text_area :contents %></td>
+          </tr>
+          <tr>
+            <th style="text-align: left;">公開レベル:</th>
+          </tr>
+          <tr>
+            <td><%= f.select :status, [["公開", :public],["友達", :friend],["非公開", :private]] %></td>
+          </tr>
+          <tr>
+            <td>
+              <div style="text-align: center;">
+                <%= f.submit '保存' %>
+              </div>
+            </td>
+          </tr>        
+        <% end %>
+    </td>
+  </tr>
+</table>
+

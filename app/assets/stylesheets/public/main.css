@@ -18,37 +18,53 @@ body {
 }
 
 #header {
-    background-color: darkred;
-    padding: 5px 5px 4px 10px;
+    
 }
 
 
 #logo {
-    color: white;
-    font-size: 1.2em;
+    color: darkred;
+    font-size: 1.8em;
     float: left;
     width: 200px;
     vertical-align: bottom;
     font-weight: bold;
-    padding-bottom: 2px;    
+    padding: 10px;
+}
+
+#logo a {
+    color: darkred;
+    text-decoration: none;    
+}
+
+#logo a:hover {
+    color: orange;
+}
+
+#account {
+    text-align: right;
+    vertical-align: bottom;
+    padding-right: 10px;
+    color: darkgray;
+}
+
+#account a {
+    color: darkred;
+    text-decoration: none;
+}
+
+#account a:hover {
+    color: orange;
 }
 
 #menus {
-    vertical-align: bottom;
-    text-align: right;
     color: red;
-    
+    background-color: darkred;
 }
 
 #menus a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 0.6em;
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-bottom: 8px;
-    padding-top: 4px;
 }
 
 #menus a:hover {

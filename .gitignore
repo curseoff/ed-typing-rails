@@ -18,7 +18,7 @@ pickle-email-*.html
 .project
 /config/database.yml
 /config/private_pub.yml
-/config/initializers/omniauth.rb
+/config/facebook.yml
 /nbproject/
 !.gitkeep
 !.gitignore

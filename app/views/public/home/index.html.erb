@@ -1,1 +1,23 @@
-<%= link_to "/auth/facebook" do %><%= image_tag "facebook_login.png" %><% end %>
+
+<% for room in @rooms %>
+  <fieldset style="width: 300px;">
+    <legend style="text-align: center;"><%= room.title %></legend>
+    <table width="100%">
+      <tr>
+        <td style="width: 50px;">
+          <%= image_tag "http://graph.facebook.com/#{room.user.uid}/picture?type=square" %>
+        </td>
+        <td style="padding-left: 5px; vertical-align: top; text-align: left;">
+          作成者: <%= room.user.name %><br />
+          参加人数: <%= room.number_of_people  %>
+          <br />
+          <div style="text-align: right;">
+            <%= room_join room %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+  <br />
+<% end %>
+

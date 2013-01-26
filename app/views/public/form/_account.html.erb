@@ -1,0 +1,5 @@
+<% if @current_user %>
+    <%= image_tag @current_user.person.profile["info"]["image"], :width => "20px" %>
+    <%= link_to @current_user.person.profile["info"]["urls"]["Facebook"] do %><%= @current_user.person.profile["info"]["name"] %><% end %>
+     | <%= link_to 'ログアウト', logout_url %>
+<% end %>

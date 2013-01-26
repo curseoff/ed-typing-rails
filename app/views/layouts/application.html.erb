@@ -7,22 +7,20 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+
     <div id="header">
       <table width="100%">
         <tr>
           <td id="logo">
-            ed-typing
+            <%= link_to 'ed-typing', root_url %>
           </td>
-          <td id="menus">
-            <% if @current_user %>
-              <span style="color: white;">
-                <%= image_tag @current_user.person.profile["info"]["image"], :width => "20px" %>
-                <%= link_to @current_user.person.profile["info"]["urls"]["Facebook"] do %><%= @current_user.person.profile["info"]["name"] %><% end %>
-              </span> |
-            <% end %>
-
-            <%= link_to "ホーム", root_url %> | 
-            <%= link_to "ログアウト", logout_url %>
+          <td id="account">
+            <%= render '/public/form/account' %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" id="menus">
+            <%= render '/public/form/menu' %>
           </td>
         </tr>
       </table>

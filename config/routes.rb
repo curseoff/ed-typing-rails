@@ -8,14 +8,22 @@ EnglishCurseoffCom::Application.routes.draw do
     resources :home do
       
     end
+    
+    resources :rooms do
+      resources :users do
+        
+      end
+    end
   end
   
   namespace :admin do
     
   end
   
+  match '/logout', :to => 'sessions#destroy'
+  match '/login', :to => 'sessions#index'
   match '/auth/:provider/callback', :to => 'sessions#create'
-  match '/logout', :to => 'sessions#destroy'  
+
   match ':controller(/:action(/:id))(.:format)'
   
   root :to => 'public/home#index'

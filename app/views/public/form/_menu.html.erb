@@ -1,4 +1,5 @@
 <ul id="nav">
+  <% if @current_user %>
   <li><%= link_to 'ダッシュボード', root_path %></li>
   <li><%= link_to "部屋", new_public_room_path %>
     <% if entering_rooms.present? %>
@@ -9,4 +10,5 @@
     </ul>
     <% end %>
   </li>
+  <% end %>
 </ul>

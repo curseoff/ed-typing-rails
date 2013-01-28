@@ -1,4 +1,4 @@
-class Public::RoomsController < Public::BaseController
+class Admin::RoomsController < Public::BaseController
   def new
     @room = @current_user.rooms.new
     @rooms = @current_user.myrooms
@@ -14,7 +14,7 @@ class Public::RoomsController < Public::BaseController
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to edit_public_room_path(@room), notice: 'Eng was successfully updated.' }
+        format.html { redirect_to edit_admin_room_path(@room), notice: 'Eng was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "new" }
@@ -28,7 +28,7 @@ class Public::RoomsController < Public::BaseController
 
     respond_to do |format|
       if @room.update_attributes(params[:room])
-        format.html { redirect_to edit_public_room_path(@room), notice: 'Eng was successfully updated.' }
+        format.html { redirect_to edit_admin_room_path(@room), notice: 'Eng was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

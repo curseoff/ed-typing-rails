@@ -1,14 +1,14 @@
 <table width="100%">
   <tr>
     <td style="width: 200px; vertical-align: top; padding: 5px;">
-      <%= link_to "新しい部屋を作る", new_public_room_path %>
+      <%= link_to "新しい部屋を作る", new_admin_room_path %>
       <hr />
       <% @rooms.each_with_index do |room, index| %>
-      <%= link_to room.title, edit_public_room_path(room) %><br />
+      <%= link_to room.title, edit_admin_room_path(room) %><br />
       <% end %>
     </td>
     <td style="vertical-align: top;">
-      <%= form_for [:public, @room] do |f| %>
+      <%= form_for [:admin, @room] do |f| %>
         <table>
           <tr>
             <th style="text-align: left;">ルーム名:</th>

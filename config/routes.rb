@@ -1,5 +1,11 @@
 EnglishCurseoffCom::Application.routes.draw do
   
+  namespace :admin do
+    resources :rooms do
+      
+    end
+  end
+  
   namespace :public do
     resources :chat do
       

@@ -7,6 +7,9 @@ class Room < ActiveRecord::Base
   
   attr_accessible :contents, :status, :title, :user_id
   
+  validates :title,  :presence => true,:uniqueness=>true
+  validates :contents,  :presence => true,:uniqueness=>true
+  
   def self.public_rooms
     self.where(:status => 'public')
   end

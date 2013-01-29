@@ -17,6 +17,7 @@ class Admin::RoomsController < Public::BaseController
         format.html { redirect_to edit_admin_room_path(@room), notice: 'Eng was successfully updated.' }
         format.json { head :no_content }
       else
+        @rooms = @current_user.myrooms
         format.html { render action: "new" }
         format.json { render json: @room.errors, status: :unprocessable_entity }
       end
@@ -31,6 +32,7 @@ class Admin::RoomsController < Public::BaseController
         format.html { redirect_to edit_admin_room_path(@room), notice: 'Eng was successfully updated.' }
         format.json { head :no_content }
       else
+        @rooms = @current_user.myrooms
         format.html { render action: "edit" }
         format.json { render json: @room.errors, status: :unprocessable_entity }
       end

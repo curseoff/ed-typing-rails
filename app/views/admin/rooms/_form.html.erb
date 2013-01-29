@@ -4,10 +4,21 @@
       <%= link_to "新しい部屋を作る", new_admin_room_path %>
       <hr />
       <% @rooms.each_with_index do |room, index| %>
-      <%= link_to room.title, edit_admin_room_path(room) %><br />
+        <%= link_to room.title, edit_admin_room_path(room) %><br />
       <% end %>
     </td>
     <td style="vertical-align: top;">
+      <% if @room.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@room.errors.count, "error") %> prohibited this user_test from being saved:</h2>
+
+          <ul>
+            <% @room.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>      
       <%= form_for [:admin, @room] do |f| %>
         <table>
           <tr>

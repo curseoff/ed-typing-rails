@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20130112161643) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "room_users", ["room_id", "user_id"], :name => "index_room_users_on_room_id_and_user_id", :unique => true
+  add_index "room_users", ["user_id"], :name => "index_room_users_on_user_id", :unique => true
 
   create_table "rooms", :force => true do |t|
     t.integer  "user_id"

@@ -4,7 +4,7 @@ class Public::UsersController < Public::BaseController
       RoomUser.delete_all(:user_id => @current_user.id)
       Room.find(params[:room_id]).users << @current_user
     end
-    redirect_to root_url
+    redirect_to public_room_url(params[:room_id])
   end
   
   def destroy

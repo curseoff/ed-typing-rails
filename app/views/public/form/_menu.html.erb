@@ -5,7 +5,7 @@
     <% if entering_rooms.present? %>
     <ul>
       <% entering_rooms.each do |room| %>
-        <li><%= link_to room.title, new_public_room_path %></li>
+        <li><%= link_to room.title, public_room_url(room) %></li>
       <% end %>
     </ul>
     <% end %>

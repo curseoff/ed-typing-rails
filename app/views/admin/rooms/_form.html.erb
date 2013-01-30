@@ -42,7 +42,7 @@
           <tr>
             <td>
               <div style="text-align: center;">
-                <%= f.submit '保存' %>
+                <%= f.submit '保存' %><% unless @room.new_record? %><%= button_to '削除', admin_room_path(@room), method: :delete %><% end %>
               </div>
             </td>
           </tr>        

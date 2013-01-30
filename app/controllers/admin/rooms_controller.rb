@@ -38,4 +38,11 @@ class Admin::RoomsController < Public::BaseController
       end
     end
   end
+  
+  def destroy
+    @room = @current_user.rooms.find(params[:id])
+    @room.delete
+    
+    redirect_to new_admin_room_path
+  end
 end
